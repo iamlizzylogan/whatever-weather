@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from "./Header";
 
 class App extends Component {
     constructor() {
@@ -6,9 +7,7 @@ class App extends Component {
     }
     render() {
         return (
-            <header className="title">
-                <span className="title__name">Whatever Weather</span>
-            </header>
+            <Header title="Whatever Weather" />
         )
     }
 }
