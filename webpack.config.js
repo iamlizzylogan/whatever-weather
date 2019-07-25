@@ -17,6 +17,19 @@ module.exports = {
                         loader: "babel-loader"
                     }
                 ]
+            },
+            {
+                test: /\.s(a|c)ss$/,
+                loader: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -26,5 +39,8 @@ module.exports = {
             template: "./index.html",
             filename: "../dist/index.html"
         })
-    ]
+    ],
+    resolve: {
+        extensions: [".js", ".jsx", ".scss"]
+    }
 }
