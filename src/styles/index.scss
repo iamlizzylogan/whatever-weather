@@ -1,1 +1,15 @@
 @import './reset';
+
+.title {
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #50c0d9;
+    box-shadow: 0 0 5px #08080887;
+    &__name {
+        font-size: 30px;
+        color: #fafafa;
+        font-weight: 300;
+    }
+}

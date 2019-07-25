@@ -6,7 +6,9 @@ class App extends Component {
     }
     render() {
         return (
-            <div>Whatever Weather</div>
+            <header className="title">
+                <span className="title__name">Whatever Weather</span>
+            </header>
         )
     }
 }
