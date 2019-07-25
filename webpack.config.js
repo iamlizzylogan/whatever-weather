@@ -1,4 +1,5 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     context: __dirname + "/src",
@@ -34,11 +35,17 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebPackPlugin({
+        new HtmlWebpackPlugin({
             hash: true,
             template: "./index.html",
             filename: "../dist/index.html"
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: "./assets",
+                to: "../dist/assets"
+            }
+        ])
     ],
     resolve: {
         extensions: [".js", ".jsx", ".scss"]
