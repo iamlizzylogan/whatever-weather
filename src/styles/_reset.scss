@@ -10,4 +10,7 @@ body {
     height: 100%;
     margin: 0;
     font-family: sans-serif;
+    & > #app > .wrapper {
+        height: 100%;
+    }
 }
