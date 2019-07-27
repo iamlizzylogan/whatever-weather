@@ -20,6 +20,7 @@ class App extends Component {
                             </div>
                         </div>
                     </section>
+                    <section className="date">Tuesday, April 15th</section>
                 </div>
             </div>
         )
