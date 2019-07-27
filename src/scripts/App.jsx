@@ -7,7 +7,7 @@ class App extends Component {
     }
     render() {
         return (
-            <div className="wrapper">
+            <div className="container">
                 <Header title="Whatever Weather" />
                 <div className="widget">
                     <section className="location">
@@ -48,6 +48,28 @@ class App extends Component {
                                 </div>
                             </div>
                         </div>
+                    </section>
+                    <section className="nutshell">
+                        <ul>
+                            <li className="nutshell__day --0">
+                                <div>Today</div>
+                                <div>
+                                    <img src="assets/sunny.png" alt="sunny" />
+                                </div>
+                                <div className="temperature">
+                                    <div className="wrapper">
+                                        <span className="temperature__celsius">68°C</span>
+                                        <span className="temperature__fahrenheit">36°F</span>
+                                    </div>
+                                </div>
+                                <div className="pollen">
+                                    <div className="wrapper">
+                                        <span className="pollen__key">Pollen</span>
+                                        <span className="pollen__value">36</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </section>
                 </div>
             </div>
