@@ -5,13 +5,21 @@ import Location from "./Location";
 class App extends Component {
     constructor() {
         super();
+        this.state = {
+            currentCity: ''
+        }
     }
+
+    setCurrentCity(city) {
+        this.setState({ currentCity: city});
+    }
+
     render() {
         return (
             <div className="container">
                 <Header title="Whatever Weather" />
                 <div className="widget">
-                    <Location />
+                    <Location onChange={this.setCurrentCity.bind(this)}/>
                     <section className="date">Tuesday, April 15th</section>
                     <section className="weather">
                         <span className="weather__type">Overcast</span>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 class Location extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.endpoint = 'http://dev-weather-api.azurewebsites.net/api/city';
+        this.onChange = this.props.onChange;
         this.state = {
             cities: [],
-            currentCity: {}
+            currentCity: ''
         }
     }
 
@@ -17,7 +18,9 @@ class Location extends Component {
                     let options = data.map((element, index) => {
                         return ( <div className="location__nameOptions --option" key={index}>{element['name']}</div> )
                     });
-                    this.setState({ cities: options, currentCity: options[0].props.children });
+                    let currentCity = options[0].props.children;
+                    this.setState({ cities: options, currentCity: currentCity });
+                    this.props.onChange(currentCity);
                 }
             )
         )
