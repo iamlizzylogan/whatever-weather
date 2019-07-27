@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from "./Header";
+import Location from "./Location";
 
 class App extends Component {
     constructor() {
@@ -10,16 +11,7 @@ class App extends Component {
             <div className="container">
                 <Header title="Whatever Weather" />
                 <div className="widget">
-                    <section className="location">
-                        <div className="location__name">
-                            <span className="location__nameText">Londyn</span>
-                            <div className="location__nameOptions">
-                                <div className="location__nameOptions --option">Katowice</div>
-                                <div className="location__nameOptions --option">Londyn</div>
-                                <div className="location__nameOptions --option">Sosnowiec</div>
-                            </div>
-                        </div>
-                    </section>
+                    <Location />
                     <section className="date">Tuesday, April 15th</section>
                     <section className="weather">
                         <span className="weather__type">Overcast</span>
