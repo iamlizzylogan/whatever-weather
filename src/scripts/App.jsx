@@ -12,7 +12,8 @@ class App extends Component {
         this.state = {
             currentCity: '',
             currentDate: new Date(),
-            currentWeather: []
+            currentWeather: [],
+            futureWeather: []
         };
         this.endpoint = (id, date) => {
             return `http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=${date}`
@@ -39,24 +40,35 @@ class App extends Component {
                         windDirection={currentData.windInfo.direction}
                         pollenCount={currentData.pollenCount}
                     />;
-                this.setState({ currentWeather: weatherComponent });
+                let summaryComponents = data.map((day, index) => {
+                    return (
+                        <Summary
+                            key={index}
+                            index={index}
+                            date={day.date}
+                            type={day.type}
+                            temperature={day.temperature}
+                            pollenCount={day.pollenCount}
+                        />
+                    )
+                })
+                this.setState({ currentWeather: weatherComponent, futureWeather: summaryComponents });
             }));
     }
 
     render() {
         setTimeout(this.updateCurrentDate.bind(this), 1000);
+        let { currentDate, currentWeather, futureWeather } = this.state;
 
         return (
             <div className="container">
                 <Header title="Whatever Weather" />
                 <div className="widget">
                     <Location onChange={this.getWeatherInfo.bind(this)}/>
-                    <Today date={this.state.currentDate} />
-                    {this.state.currentWeather}
+                    <Today date={currentDate} />
+                    {currentWeather}
                     <section className="nutshell">
-                        <ul>
-                            <Summary />
-                        </ul>
+                        <ul>{futureWeather}</ul>
                     </section>
                 </div>
             </div>
