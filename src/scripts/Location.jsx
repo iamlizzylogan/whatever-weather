@@ -15,12 +15,12 @@ class Location extends Component {
         fetch(this.endpoint)
             .then(response => response.json()
                 .then(data => {
-                    let options = data.map((element, index) => {
-                        return ( <div className="location__nameOptions --option" key={index}>{element['name']}</div> )
+                    let options = data.map(element => {
+                        return ( <div className="location__nameOptions --option" key={element['id']}>{element['name']}</div> )
                     });
                     let currentCity = options[0].props.children;
                     this.setState({ cities: options, currentCity: currentCity });
-                    this.props.onChange(currentCity);
+                    this.props.onChange(options[0].key);
                 }
             )
         )

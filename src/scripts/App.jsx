@@ -10,8 +10,13 @@ class App extends Component {
         }
     }
 
-    setCurrentCity(city) {
-        this.setState({ currentCity: city});
+    getWeatherInfo(id) {
+        fetch(`http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=2019-07-25`)
+            .then(response => response.json().then(data => {
+                console.log(data);
+            }));
+
+        this.setState({ currentCity: id});
     }
 
     render() {
@@ -19,7 +24,7 @@ class App extends Component {
             <div className="container">
                 <Header title="Whatever Weather" />
                 <div className="widget">
-                    <Location onChange={this.setCurrentCity.bind(this)}/>
+                    <Location onChange={this.getWeatherInfo.bind(this)}/>
                     <section className="date">Tuesday, April 15th</section>
                     <section className="weather">
                         <span className="weather__type">Overcast</span>
