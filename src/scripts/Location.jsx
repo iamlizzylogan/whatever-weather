@@ -16,7 +16,13 @@ class Location extends Component {
             .then(response => response.json()
                 .then(data => {
                     let options = data.map(element => {
-                        return ( <div className="location__nameOptions --option" key={element['id']}>{element['name']}</div> )
+                        let { id, name } = element;
+
+                        return (
+                            <div className="location__nameOptions --option"
+                            onClick={this.changeCity.bind(this, name, id)}
+                            key={id}>{name}</div>
+                        )
                     });
                     let currentCity = options[0].props.children;
                     this.setState({ cities: options, currentCity: currentCity });
@@ -24,6 +30,11 @@ class Location extends Component {
                 }
             )
         )
+    }
+
+    changeCity(name, id) {
+        this.setState({ currentCity: name});
+        this.props.onChange(id);
     }
 
     render() {

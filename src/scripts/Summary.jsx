@@ -35,8 +35,8 @@ class Summary extends Component {
         }
     }
 
-    UNSAFE_componentWillMount() {
-        let { index, date, type, temperature } = this.props;
+    processProps(properties) {
+        let { index, date, type, temperature } = properties;
 
         let weekday = index === 0 ? 'Today' : getWeekday(new Date(date));
 
@@ -55,6 +55,14 @@ class Summary extends Component {
             fahrenheit: fahrenheit,
             celsius: temperature
         });
+    }
+
+    UNSAFE_componentWillMount() {
+        this.processProps(this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.processProps(nextProps);
     }
 
     render() {
