@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./Header";
 import Location from "./Location";
+import Summary from "./Summary";
 import Today from "./Today";
 import Weather from "./Weather";
 import getRequestDate from "./getRequestDate";
@@ -54,24 +55,7 @@ class App extends Component {
                     {this.state.currentWeather}
                     <section className="nutshell">
                         <ul>
-                            <li className="nutshell__day --0">
-                                <div>Today</div>
-                                <div>
-                                    <img src="assets/sunny.png" alt="sunny" />
-                                </div>
-                                <div className="temperature">
-                                    <div className="wrapper">
-                                        <span className="temperature__celsius">68°C</span>
-                                        <span className="temperature__fahrenheit">36°F</span>
-                                    </div>
-                                </div>
-                                <div className="pollen">
-                                    <div className="wrapper">
-                                        <span className="pollen__key">Pollen</span>
-                                        <span className="pollen__value">36</span>
-                                    </div>
-                                </div>
-                            </li>
+                            <Summary />
                         </ul>
                     </section>
                 </div>
