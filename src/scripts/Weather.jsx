@@ -16,6 +16,14 @@ class Weather extends Component {
             Cloudy: {
                 name: 'Overcast',
                 img: 'cloudy'
+            },
+            PartlyCloudy: {
+                name: 'Fair',
+                img: 'partly_cloudy'
+            },
+            Sunny: {
+                name: 'Sunny',
+                img: 'sunny'
             }
         }
         this.state = {
