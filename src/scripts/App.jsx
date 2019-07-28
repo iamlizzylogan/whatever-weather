@@ -27,7 +27,9 @@ class App extends Component {
         fetch(this.endpoint(id, dateString))
             .then(response => response.json().then(data => {
                 const currentData = data[0];
-                let weatherComponent = <Weather
+                let weatherComponent =
+                    <Weather
+                        type={currentData.type}
                         temperature={currentData.temperature}
                         precipitation={currentData.precipitation}
                         humidity={currentData.humidity}
@@ -35,9 +37,7 @@ class App extends Component {
                         windDirection={currentData.windInfo.direction}
                         pollenCount={currentData.pollenCount}
                     />;
-                let currentWeather = [...this.state.currentWeather];
-                currentWeather.push(weatherComponent);
-                this.setState({ currentWeather: currentWeather });
+                this.setState({ currentWeather: weatherComponent });
             }));
     }
 
