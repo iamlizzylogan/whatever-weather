@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./Header";
 import Location from "./Location";
+import Today from "./Today";
 import Weather from "./Weather";
 import getRequestDate from "./getRequestDate";
 
@@ -49,7 +50,7 @@ class App extends Component {
                 <Header title="Whatever Weather" />
                 <div className="widget">
                     <Location onChange={this.getWeatherInfo.bind(this)}/>
-                    <section className="date">Tuesday, April 15th</section>
+                    <Today date={this.state.currentDate} />
                     {this.state.currentWeather}
                     <section className="nutshell">
                         <ul>
