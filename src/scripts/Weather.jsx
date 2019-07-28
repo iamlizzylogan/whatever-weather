@@ -4,25 +4,49 @@ import getFahrenheit from './getFahrenheit';
 class Weather extends Component {
     constructor(props) {
         super(props);
-        this.typeNames = [
-            ['RainAndCloudy', 'Heavy rain'],
-            ['RainLight', 'Light rain'],
-            ['Cloudy', 'Overcast']
-        ];
+        this.types = {
+            RainAndCloudy: {
+                name: 'Heavy rain',
+                img: 'rain_s_cloudy'
+            },
+            RainLight: {
+                name: 'Light rain',
+                img: 'rain_light'
+            },
+            Cloudy: {
+                name: 'Overcast',
+                img: 'cloudy'
+            }
+        }
+        this.state = {
+            image: '',
+            description: ''
+        }
+    }
+
+    UNSAFE_componentWillMount() {
+        let {type} = this.props;
+        let valid = Object.keys(this.types).includes(type);
+        if (!valid) { return false }
+
+        let src = this.types[type]['img'];
+        let description = this.types[type]['name'];
+        let image = <img className="weather__dataBasics --image"
+                src={`assets/${src}.png`} alt={description}/>;
+
+        this.setState({ image: image, description: description })
     }
 
     render() {
-        let { type, temperature, precipitation, humidity, windSpeed, windDirection, pollenCount } = this.props;
-        let tuple = this.typeNames.filter(tuple => tuple.includes(type))[0];
-        let typeDisplayName = tuple ? tuple[1] : false;
+        let { temperature, precipitation, humidity, windSpeed, windDirection, pollenCount } = this.props;
         let fahrenheit = getFahrenheit(temperature);
 
         return (
             <section className="weather">
-                        <span className="weather__type">{typeDisplayName}</span>
+                        <span className="weather__type">{this.state.description}</span>
                         <div className="weather__data">
                             <div className="weather__dataBasics">
-                                <img className="weather__dataBasics --image" src="assets/cloudy.png" alt="cloudy"/>
+                                {this.state.image}
                                 <span className="weather__dataBasics --value">{fahrenheit}</span>
                                 <span className="weather__dataBasics --unit">°F</span>
                             </div>
