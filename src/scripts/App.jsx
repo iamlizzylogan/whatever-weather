@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./Header";
 import Location from "./Location";
+import getDateString from "./getDateString";
 
 class App extends Component {
     constructor() {
@@ -16,9 +17,9 @@ class App extends Component {
     }
 
     getWeatherInfo(id) {
-        this.setState({ currentCity: id});
-
-        fetch(`http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=2019-07-25`)
+        this.setState({ currentCity: id });
+        const dateString = getDateString(this.state.currentDate);
+        fetch(`http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=${dateString}`)
             .then(response => response.json().then(data => {
                 console.log(data);
             }));
