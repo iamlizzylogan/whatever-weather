@@ -6,20 +6,27 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            currentCity: ''
+            currentCity: '',
+            currentDate: new Date()
         }
     }
 
+    updateCurrentDate() {
+        this.setState({ currentDate: new Date() });
+    }
+
     getWeatherInfo(id) {
+        this.setState({ currentCity: id});
+
         fetch(`http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=2019-07-25`)
             .then(response => response.json().then(data => {
                 console.log(data);
             }));
-
-        this.setState({ currentCity: id});
     }
 
     render() {
+        setTimeout(this.updateCurrentDate.bind(this), 1000);
+
         return (
             <div className="container">
                 <Header title="Whatever Weather" />
