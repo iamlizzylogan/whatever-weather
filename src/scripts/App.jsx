@@ -9,6 +9,9 @@ class App extends Component {
         this.state = {
             currentCity: '',
             currentDate: new Date()
+        };
+        this.endpoint = (id, date) => {
+            return `http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=${date}`
         }
     }
 
@@ -19,7 +22,7 @@ class App extends Component {
     getWeatherInfo(id) {
         this.setState({ currentCity: id });
         const dateString = getDateString(this.state.currentDate);
-        fetch(`http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=${dateString}`)
+        fetch(this.endpoint(id, dateString))
             .then(response => response.json().then(data => {
                 console.log(data);
             }));
