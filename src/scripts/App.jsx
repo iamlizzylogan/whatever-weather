@@ -9,7 +9,8 @@ class App extends Component {
         super();
         this.state = {
             currentCity: '',
-            currentDate: new Date()
+            currentDate: new Date(),
+            currentWeather: []
         };
         this.endpoint = (id, date) => {
             return `http://dev-weather-api.azurewebsites.net/api/city/${id}/weather?date=${date}`
@@ -25,7 +26,18 @@ class App extends Component {
         const dateString = getDateString(this.state.currentDate);
         fetch(this.endpoint(id, dateString))
             .then(response => response.json().then(data => {
-                console.log(data);
+                const currentData = data[0];
+                let weatherComponent = <Weather
+                        temperature={currentData.temperature}
+                        precipitation={currentData.precipitation}
+                        humidity={currentData.humidity}
+                        windSpeed={currentData.windInfo.speed}
+                        windDirection={currentData.windInfo.direction}
+                        pollenCount={currentData.pollenCount}
+                    />;
+                let currentWeather = [...this.state.currentWeather];
+                currentWeather.push(weatherComponent);
+                this.setState({ currentWeather: currentWeather });
             }));
     }
 
@@ -38,7 +50,7 @@ class App extends Component {
                 <div className="widget">
                     <Location onChange={this.getWeatherInfo.bind(this)}/>
                     <section className="date">Tuesday, April 15th</section>
-                    <Weather />
+                    {this.state.currentWeather}
                     <section className="nutshell">
                         <ul>
                             <li className="nutshell__day --0">
