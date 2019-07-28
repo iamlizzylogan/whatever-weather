@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from "./Header";
 import Location from "./Location";
 import Weather from "./Weather";
-import getDateString from "./getDateString";
+import getRequestDate from "./getRequestDate";
 
 class App extends Component {
     constructor() {
@@ -23,7 +23,7 @@ class App extends Component {
 
     getWeatherInfo(id) {
         this.setState({ currentCity: id });
-        const dateString = getDateString(this.state.currentDate);
+        const dateString = getRequestDate(this.state.currentDate);
         fetch(this.endpoint(id, dateString))
             .then(response => response.json().then(data => {
                 const currentData = data[0];

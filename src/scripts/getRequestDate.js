@@ -1,8 +1,8 @@
-const getDateString = date => {
+const getRequestDate = date => {
     let arr = date.toLocaleDateString().split('/');
     let arrReversed = arr.sort((prev, curr) => arr.indexOf(prev) < arr.indexOf(curr));
-    let dateString = arrReversed.join('-');
-    return dateString;
+    let requestDate = arrReversed.join('-');
+    return requestDate;
 }
 
-export default getDateString;
+export default getRequestDate;
