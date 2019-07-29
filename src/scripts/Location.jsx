@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import toggleAccordion from "./toggleAccordion";
 
 class Location extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Location extends Component {
                         let { id, name } = element;
 
                         return (
-                            <div className="location__nameOptions --option"
+                            <div className="option"
                             onClick={this.changeCity.bind(this, name, id)}
                             key={id}>{name}</div>
                         )
@@ -42,7 +43,7 @@ class Location extends Component {
         return (
             <section className="location">
                 <div className="location__name">
-                    <span className="location__nameText">{`${currentCity}`}</span>
+                    <span className="location__nameText" onClick={event => toggleAccordion(event)}>{`${currentCity}`}</span>
                     <div className="location__nameOptions">
                         {cities ? cities : false}
                     </div>
