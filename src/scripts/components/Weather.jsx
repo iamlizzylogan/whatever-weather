@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getFahrenheit from './getFahrenheit';
+import getFahrenheit from '../functions/getFahrenheit';
 
 class Weather extends Component {
     constructor(props) {

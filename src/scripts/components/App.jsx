@@ -4,7 +4,7 @@ import Location from "./Location";
 import Summary from "./Summary";
 import Today from "./Today";
 import Weather from "./Weather";
-import getRequestDate from "./getRequestDate";
+import getRequestDate from "../functions/getRequestDate";
 
 class App extends Component {
     constructor() {
