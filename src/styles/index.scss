@@ -22,6 +22,7 @@
         &Text {
             display: flex;
             align-items: center;
+            cursor: pointer;
             &::after {
                 content: '';
                 width: 0;
@@ -41,6 +42,7 @@
             height: 0;
             overflow: hidden;
             transition: .4s;
+            cursor: pointer;
             &.--open {
                 height: 164px;
             }
