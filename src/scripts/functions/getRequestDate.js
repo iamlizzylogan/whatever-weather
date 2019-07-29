@@ -1,6 +1,6 @@
 const getRequestDate = date => {
-    let arr = date.toLocaleDateString().split('/');
-    let arrReversed = arr.sort((prev, curr) => arr.indexOf(prev) < arr.indexOf(curr));
+    let arr = date.toLocaleDateString('en-GB').split('/');
+    let arrReversed = arr.sort((prev, curr) => arr.indexOf(curr) - arr.indexOf(prev));
     let requestDate = arrReversed.join('-');
     return requestDate;
 }
