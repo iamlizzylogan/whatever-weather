@@ -113,26 +113,16 @@
         & > * {
             width: 25%;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             &:first-child {
                 font-weight: 500;
+                align-items: flex-start;
             }
             &:nth-child(2) > img {
                 width: 60px;
                 height: 60px;
-            }
-            &:nth-child(3), &:nth-child(4) {
-                & .wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    & > * {
-                        margin-inline: auto;
-                        &:last-child {
-                            margin-top: 3px;
-                        }
-                    }
-                }
             }
         }
     }

@@ -74,16 +74,12 @@ class Summary extends Component {
                 <div>{weekday}</div>
                 <div>{image}</div>
                 <div className="temperature">
-                    <div className="wrapper">
-                        <span className="temperature__celsius">{celsius}°C</span>
-                        <span className="temperature__fahrenheit">{fahrenheit}°F</span>
-                    </div>
+                    <span className="temperature__fahrenheit">{fahrenheit}°</span>
+                    <span className="temperature__celsius">{celsius}°</span>
                 </div>
                 <div className="pollen">
-                    <div className="wrapper">
-                        <span className="pollen__key">Pollen</span>
-                        <span className="pollen__value">{pollenCount}</span>
-                    </div>
+                    <span className="pollen__key">Pollen</span>
+                    <span className="pollen__value">{pollenCount}</span>
                 </div>
             </li>
         )

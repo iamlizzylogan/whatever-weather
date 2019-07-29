@@ -61,11 +61,11 @@ class Weather extends Component {
                             <div className="weather__dataDetails">
                                 <div>
                                     <span className="weather__dataDetails --key">Precipitation: </span>
-                                    <span className="weather__dataDetails --value">{precipitation}</span>
+                                    <span className="weather__dataDetails --value">{precipitation}%</span>
                                 </div>
                                 <div>
                                     <span className="weather__dataDetails --key">Humidity: </span>
-                                    <span className="weather__dataDetails --value">{humidity}</span>
+                                    <span className="weather__dataDetails --value">{humidity}%</span>
                                 </div>
                                 <div>
                                     <span className="weather__dataDetails --key">Wind: </span>
