@@ -21,7 +21,12 @@ class Location extends Component {
 
                         return (
                             <div className="option"
-                            onClick={this.changeCity.bind(this, name, id)}
+                            onClick={event => {
+                                this.changeCity(name, id);
+                                event.persist();
+                                let toggleTrigger = event.target.parentElement.previousElementSibling;
+                                toggleAccordion(toggleTrigger);
+                            }}
                             key={id}>{name}</div>
                         )
                     });
@@ -43,7 +48,9 @@ class Location extends Component {
         return (
             <section className="location">
                 <div className="location__name">
-                    <span className="location__nameText" onClick={event => toggleAccordion(event)}>{`${currentCity}`}</span>
+                    <span className="location__nameText" onClick={event => toggleAccordion(event.target)}>
+                        {`${currentCity}`}
+                    </span>
                     <div className="location__nameOptions">
                         {cities ? cities : false}
                     </div>

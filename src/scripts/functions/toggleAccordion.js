@@ -1,4 +1,4 @@
-const toggleAccordion = ({target}) => {
+const toggleAccordion = target => {
     const accordionClasses = target.nextElementSibling.classList;
 
     accordionClasses.contains('--open')
