@@ -1,8 +1,16 @@
 @import './reset';
+@import './breakpoints';
 
 $mineShaft: #2f2f2f;
 $nightRider: #3f3f3f;
 $alto: #ddd;
+
+:root {
+    --image-dimension: 60px;
+    @include breakpoint(tablet) {
+        --image-dimension: 70px;
+    }
+}
 
 .title {
     height: 64px;
@@ -32,6 +40,9 @@ $alto: #ddd;
                 width: 0;
                 height: 0;
                 margin: 0 auto;
+                @include breakpoint(tablet) {
+                    margin-left: 15px;
+                }
                 transition: .4s;
                 display: inline-block;
                 border-style: solid;
@@ -137,12 +148,26 @@ $alto: #ddd;
                 align-items: flex-start;
             }
             &:nth-child(2) > img {
-                width: 60px;
-                height: 60px;
+                width: var(--image-dimension);
+                height: var(--image-dimension);
             }
         }
     }
     & .temperature__fahrenheit {
         color: $nightRider;
+    }
+    @include breakpoint(phone-wide) {
+        & .pollen {
+            flex-direction: row;
+            &__value {
+                margin-left: 5px;
+            }
+        }
+    }
+    @include breakpoint(tablet) {
+        & .temperature {
+            flex-direction: row;
+            justify-content: space-around;
+        }
     }
 }
