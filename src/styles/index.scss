@@ -35,10 +35,16 @@ $alto: #ddd;
         margin-top: -70px;
         animation: hide-header 2s ease-in-out;
     }
+    @include breakpoint(desktop) {
+        justify-content: flex-start;
+    }
     &__name {
         font-size: 30px;
         color: #fafafa;
         font-weight: 300;
+        @include breakpoint(desktop) {
+            margin-left: 15px;
+        }
     }
 }
 
