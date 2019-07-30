@@ -26,6 +26,17 @@ $alto: #ddd;
     }
 }
 
+.widget {
+    @include breakpoint(desktop) {
+        width: 1024px;
+        height: 100%;
+        margin: 15px 7px;
+        border: 1px solid $alto;
+        border-radius: 7px;
+        box-shadow: 1px 1px 4px #08080839;
+    }
+}
+
 .location {
     &__name {
         font-size: 48px;
@@ -34,6 +45,9 @@ $alto: #ddd;
             display: flex;
             align-items: center;
             padding: 15px 15px 0;
+            @include breakpoint(desktop) {
+                padding: 15px 15px 7px;
+            }
             cursor: pointer;
             &::after {
                 content: '';
@@ -60,14 +74,25 @@ $alto: #ddd;
             cursor: pointer;
             &.--open {
                 height: 164px;
+                @include breakpoint(desktop) {
+                    height: 192px;
+                }
             }
             .option {
                 padding: 5px 22px;
                 background: #fcfcfc;
                 font-size: 34px;
                 border-top: 1px solid $alto;
+                @include breakpoint(desktop) {
+                    height: 64px;
+                    padding: 0 22px;
+                    display: flex;
+                    align-items: center;
+                }
                 &:first-of-type {
-                    margin-top: 7px;
+                    @include breakpoint(desktop, max) {
+                        margin-top: 7px;
+                    }
                 }
                 &:last-of-type {
                     border-bottom: 1px solid $alto;
@@ -126,9 +151,16 @@ $alto: #ddd;
 
 .nutshell {
     margin: 15px 7px;
+    @include breakpoint(desktop) {
+        margin: 15px 0 0;
+    }
     & > ul {
         margin: 0;
         padding-left: 0;
+        @include breakpoint(desktop) {
+            display: flex;
+            justify-content: space-evenly;
+        }
     }
     &__day {
         height: 80px;
@@ -136,16 +168,30 @@ $alto: #ddd;
         display: flex;
         border-top: 1px solid $alto;
         list-style: none;
+        @include breakpoint(desktop) {
+            width: 100%;
+            height: auto;
+            padding: 15px 0;
+            border: 0;
+            display: flex;
+            flex-direction: column;
+        }
         & > * {
             width: 25%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            @include breakpoint(desktop) {
+                width: auto;
+                margin-bottom: 5px;
+            }
             &:first-child {
                 font-weight: 500;
                 color: $mineShaft;
-                align-items: flex-start;
+                @include breakpoint(desktop, max) {
+                    align-items: flex-start;
+                }
             }
             &:nth-child(2) > img {
                 width: var(--image-dimension);
@@ -153,8 +199,20 @@ $alto: #ddd;
             }
         }
     }
-    & .temperature__fahrenheit {
-        color: $nightRider;
+    & .temperature {
+        @include breakpoint(tablet) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        @include breakpoint(desktop) {
+            justify-content: center;
+            &__celsius {
+                margin-left: 5px;
+            }
+        }
+        &__fahrenheit {
+            color: $nightRider;
+        }
     }
     @include breakpoint(phone-wide) {
         & .pollen {
@@ -162,12 +220,6 @@ $alto: #ddd;
             &__value {
                 margin-left: 5px;
             }
-        }
-    }
-    @include breakpoint(tablet) {
-        & .temperature {
-            flex-direction: row;
-            justify-content: space-around;
         }
     }
 }
