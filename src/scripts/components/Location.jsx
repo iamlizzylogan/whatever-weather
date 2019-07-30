@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import toggleAccordion from "../functions/toggleAccordion";
+import toggleAccordion from "../helpers/toggleAccordion";
 
 class Location extends Component {
     constructor(props) {

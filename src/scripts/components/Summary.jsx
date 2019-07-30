@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import getWeekday from "../functions/getWeekday";
-import getFahrenheit from '../functions/getFahrenheit';
+import getWeekday from "../helpers/getWeekday";
+import getFahrenheit from '../helpers/getFahrenheit';
 
 class Summary extends Component {
     constructor() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getDisplayDate from '../functions/getDisplayDate';
+import getDisplayDate from '../helpers/getDisplayDate';
 
 class Today extends Component {
     constructor(props) {
