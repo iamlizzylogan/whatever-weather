@@ -34,10 +34,15 @@ $alto: #ddd;
         border: 1px solid $alto;
         border-radius: 7px;
         box-shadow: 1px 1px 4px #08080839;
+        overflow: hidden;
     }
 }
 
 .location {
+    max-height: 228px;
+    @include breakpoint(desktop) {
+        max-height: 271px;
+    }
     &__name {
         font-size: 48px;
         color: $mineShaft;
@@ -72,15 +77,32 @@ $alto: #ddd;
             overflow: hidden;
             transition: .4s;
             cursor: pointer;
+            & + .shadow {
+                height: 0;
+                margin: 0 -26px;
+                z-index: -1;
+                position: relative;
+                top: 0;
+                box-shadow: inset 0 0 4px #08080839;
+                transition: .4s;
+            }
             &.--open {
-                height: 164px;
+                height: 156px;
+                & + .shadow {
+                    height: 156px;
+                    top: -156px;
+                }
                 @include breakpoint(desktop) {
                     height: 192px;
+                    & + .shadow {
+                        height: 192px;
+                        top: -192px;
+                    }
                 }
             }
             .option {
                 padding: 5px 22px;
-                background: #fcfcfc;
+                background: #99999904;
                 font-size: 34px;
                 border-top: 1px solid $alto;
                 @include breakpoint(desktop) {
@@ -89,16 +111,11 @@ $alto: #ddd;
                     display: flex;
                     align-items: center;
                 }
-                &:first-of-type {
-                    @include breakpoint(desktop, max) {
-                        margin-top: 7px;
-                    }
-                }
                 &:last-of-type {
                     border-bottom: 1px solid $alto;
                 }
                 &:hover {
-                    background: #fbfbfb;
+                    background: #0a0a0a04;
                 }
             }
         }

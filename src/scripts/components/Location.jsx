@@ -54,6 +54,7 @@ class Location extends Component {
                     <div className="location__nameOptions">
                         {cities ? cities : false}
                     </div>
+                    <div className="shadow" />
                 </div>
             </section>
         )
