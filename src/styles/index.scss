@@ -19,13 +19,13 @@ $alto: #ddd;
 }
 
 .location {
-    margin: 7px 15px 0;
     &__name {
         font-size: 48px;
         color: $mineShaft;
         &Text {
             display: flex;
             align-items: center;
+            padding: 7px 15px 0;
             cursor: pointer;
             &::after {
                 content: '';
@@ -51,7 +51,8 @@ $alto: #ddd;
                 height: 164px;
             }
             .option {
-                padding: 5px 7px;
+                padding: 5px 22px;
+                background: #fcfcfc;
                 font-size: 34px;
                 border-top: 1px solid $alto;
                 &:first-of-type {
