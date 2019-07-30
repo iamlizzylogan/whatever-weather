@@ -13,7 +13,8 @@ body {
     height: 100%;
     margin: 0;
     font-family: Roboto, sans-serif;
-    & > #app > .wrapper {
+    & > #app > .container {
         height: 100%;
+        color: #777;
     }
 }

@@ -1,5 +1,9 @@
 @import './reset';
 
+$mineShaft: #2f2f2f;
+$nightRider: #3f3f3f;
+$alto: #ddd;
+
 .title {
     height: 64px;
     display: flex;
@@ -18,7 +22,7 @@
     margin: 7px 15px 0;
     &__name {
         font-size: 48px;
-        color: #202020;
+        color: $mineShaft;
         &Text {
             display: flex;
             align-items: center;
@@ -32,7 +36,7 @@
                 display: inline-block;
                 border-style: solid;
                 border-width: 10px 8px 0 8px;
-                border-color: #202020 transparent transparent transparent;
+                border-color: $mineShaft transparent transparent transparent;
             }
             &.--active::after {
                 transform: rotate(540deg);
@@ -49,12 +53,12 @@
             .option {
                 padding: 5px 7px;
                 font-size: 34px;
-                border-top: 1px solid #aaa;
+                border-top: 1px solid $alto;
                 &:first-of-type {
                     margin-top: 7px;
                 }
                 &:last-of-type {
-                    border-bottom: 1px solid #aaa;
+                    border-bottom: 1px solid $alto;
                 }
                 &:hover {
                     background: #f5f5f5;
@@ -66,10 +70,14 @@
 
 .date {
     margin: 7px 15px 0;
+    color: $nightRider;
 }
 
 .weather {
     margin: 5px 15px 0;
+    &__type {
+        color: $nightRider;
+    }
     &__data {
         display: flex;
         &Basics, &Details {
@@ -85,15 +93,21 @@
                 height: 70px;
             }
             &.--value {
-                font-size: 34px;
                 margin: 5px 0 0 3px;
+                font-size: 34px;
+                color: $nightRider;
             }
             &.--unit {
                 margin: 10px 0 0 3px;
             }
         }
-        &Details > * {
-            margin-top: 1px;
+        &Details {
+            & > * {
+                margin-top: 1px;
+            }
+            &.--value {
+                color: $nightRider;
+            }
         }
     }
 }
@@ -108,7 +122,7 @@
         height: 80px;
         padding-left: 10px;
         display: flex;
-        border-top: 1px solid #aaa;
+        border-top: 1px solid $alto;
         list-style: none;
         & > * {
             width: 25%;
@@ -118,6 +132,7 @@
             align-items: center;
             &:first-child {
                 font-weight: 500;
+                color: $mineShaft;
                 align-items: flex-start;
             }
             &:nth-child(2) > img {
@@ -125,5 +140,8 @@
                 height: 60px;
             }
         }
+    }
+    & .temperature__fahrenheit {
+        color: $nightRider;
     }
 }
