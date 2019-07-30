@@ -12,6 +12,18 @@ $alto: #ddd;
     }
 }
 
+@keyframes hide-header {
+    from {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: 0;
+    }
+    to {
+        margin-top: -70px;
+    }
+}
+
 .title {
     height: 64px;
     display: flex;
@@ -19,6 +31,10 @@ $alto: #ddd;
     align-items: center;
     background: #50c0d9;
     box-shadow: 0 0 5px #08080887;
+    @include breakpoint(tablet, max) {
+        margin-top: -70px;
+        animation: hide-header 2s ease-in-out;
+    }
     &__name {
         font-size: 30px;
         color: #fafafa;
