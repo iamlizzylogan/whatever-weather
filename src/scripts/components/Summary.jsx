@@ -57,7 +57,7 @@ class Summary extends Component {
         });
     }
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
         this.processProps(this.props);
     }
 

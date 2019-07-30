@@ -32,7 +32,7 @@ class Weather extends Component {
         }
     }
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
         let {type} = this.props;
         let valid = Object.keys(this.types).includes(type);
         if (!valid) { return false }

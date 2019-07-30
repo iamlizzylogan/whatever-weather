@@ -12,7 +12,7 @@ class Location extends Component {
         }
     }
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
         fetch(this.endpoint)
             .then(response => response.json()
                 .then(data => {
